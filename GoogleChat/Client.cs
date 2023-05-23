@@ -33,7 +33,7 @@ public class GoogleClient: IChatClient
         {
             ChatType = ChatType.Google,
             Message = message.Body.Text,
-            ChatId = message.Space.Name,
+            ChatId = message.GoogleSpace.Name,
             Timestamp = DateTime.Parse(message.EventTime).Ticks,
         };
     }

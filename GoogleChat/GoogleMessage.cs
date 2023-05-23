@@ -2,39 +2,39 @@ using Common;
 
 namespace GoogleChat;
 
-public class Sender
+public class GoogleSender
 {
-    public string Name { get; set; }
-    public string DisplayName { get; set; }
-    public string AvatarUrl { get; set; }
-    public string Email { get; set; }
+    public required string Name { get; set; }
+    public required string DisplayName { get; set; }
+    public required string AvatarUrl { get; set; }
+    public required string Email { get; set; }
 }
 
-public class Thread
+public class GoogleThread
 {
-    public string Name { get; set; }
+    public required string Name { get; set; }
 }
 
-public class Space
+public class GoogleSpace
 {
-    public string Name { get; set; }
-    public string DisplayName { get; set; }
-    public string Type { get; set; }
+    public required string Name { get; set; }
+    public required string DisplayName { get; set; }
+    public required string Type { get; set; }
 }
 
-public class Message
+public class GoogleMessageBody
 {
-    public string Name { get; set; }
-    public Sender Sender { get; set; }
-    public string CreateTime { get; set; }
-    public string Text { get; set; }
-    public Thread Thread { get; set; }
+    public required string Name { get; set; }
+    public required GoogleSender GoogleSender { get; set; }
+    public required string CreateTime { get; set; }
+    public required string Text { get; set; }
+    public required GoogleThread GoogleThread { get; set; }
 }
 
 public class GoogleMessage: IApiMessage
 {
-    public string Type { get; set; }
-    public string EventTime { get; set; }
-    public Space Space { get; set; }
-    public Message Body { get; set; }
+    public required string Type { get; set; }
+    public required string EventTime { get; set; }
+    public required GoogleSpace GoogleSpace { get; set; }
+    public required GoogleMessageBody Body { get; set; }
 }

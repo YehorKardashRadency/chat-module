@@ -37,9 +37,9 @@ public class WhatsAppClient: IChatClient
         return new PlatformMessageResponse()
         {
             ChatType = ChatType.WhatsApp,
-            Message = message.Messages[0].Text.Body,
+            Message = message.Messages[0].WaText.Body,
             ChatId = message.Contacts[0].WaId,
-            Sender = new Sender() {Id = message.Contacts[0].WaId, Name = message.Contacts[0].Profile.Name},
+            Sender = new Sender() {Id = message.Contacts[0].WaId, Name = message.Contacts[0].WaProfile.Name},
             Timestamp = long.Parse(message.Messages[0].Timestamp),
         };
     }

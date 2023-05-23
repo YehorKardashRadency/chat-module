@@ -4,18 +4,18 @@ namespace FacebookChat;
 
 public class IdField
 {
-    public string Id { get; set; }
+    public required string Id { get; set; }
 }
 
 public class FacebookMessageBody
 {
-    public string Mid { get; set; }
-    public string Text { get; set; }
+    public required string Mid { get; set; }
+    public required string Text { get; set; }
 }
 public class FacebookMessage: IApiMessage
 {
-    public IdField Sender { get; set; }
-    public IdField Recipient { get; set; }
-    public long  Timestamp { get; set; }
-    public FacebookMessageBody Body { get; set; }
+    public required IdField Sender { get; set; }
+    public required IdField Recipient { get; set; }
+    public required long Timestamp { get; set; }
+    public required FacebookMessageBody Body { get; set; }
 }

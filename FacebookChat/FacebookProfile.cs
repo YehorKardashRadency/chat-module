@@ -2,11 +2,11 @@ namespace FacebookChat;
 
 public class FacebookProfile
 {
-    public string Id { get; set; }
-    public string Name { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string ProfilePic { get; set; }
-    public string Gender { get; set; }
-    public string Locale { get; set; }
+    public required string Id { get; set; }
+    public required string Name { get; set; }
+    public required string FirstName { get; set; }
+    public required string LastName { get; set; }
+    public string? ProfilePic { get; set; }
+    public required string Gender { get; set; }
+    public required string Locale { get; set; }
 }

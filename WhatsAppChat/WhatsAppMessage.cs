@@ -1,32 +1,32 @@
 using Common;
 
-public class Profile
+public class WAProfile
 {
-    public string Name { get; set; }
+    public required string Name { get; set; }
 }
 
-public class Contact
+public class WAContact
 {
-    public Profile Profile { get; set; }
-    public string WaId { get; set; }
+    public required WAProfile WaProfile { get; set; }
+    public required string WaId { get; set; }
 }
 
-public class Text
+public class WAText
 {
-    public string Body { get; set; }
+    public required string Body { get; set; }
 }
 
-public class Message
+public class WAMessage
 {
-    public string From { get; set; }
-    public string Id { get; set; }
-    public string Timestamp { get; set; }
-    public Text Text { get; set; }
-    public string Type { get; set; }
+    public required string From { get; set; }
+    public required string Id { get; set; }
+    public required string Timestamp { get; set; }
+    public required WAText WaText { get; set; }
+    public required string Type { get; set; }
 }
 
 public class WhatsAppMessage : IApiMessage
 {
-    public List<Contact> Contacts { get; set; }
-    public List<Message> Messages { get; set; }
+    public required List<WAContact> Contacts { get; set; }
+    public required List<WAMessage> Messages { get; set; }
 }

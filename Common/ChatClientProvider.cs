@@ -7,7 +7,7 @@ public class ChatClientProvider
         _serviceProvider = serviceProvider;
     }
 
-    public Dictionary<ChatType,Type> ClientTypes { get; set; }
+    private Dictionary<ChatType, Type> ClientTypes { get; set; } = new();
 
     private readonly IServiceProvider _serviceProvider;
     

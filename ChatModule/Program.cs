@@ -16,8 +16,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<ChatClientProvider>();
 builder.Services.AddTransient<MessageProcessor>();
-builder.Services.AddTransient<MessageBus>();
 
+builder.Services.ConfigureMessageBus();
 
 builder.Services.AddHttpClient();
 
@@ -38,19 +38,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseFacebookClient();
-
-
-// app.MapPost("/google/webhook/receive/", async (GoogleMessage message,MessageProcessor messageProcessor) =>
-// {
-//     messageProcessor.Receive(ChatType.Google,message);
-// });
-// app.MapPost("/whatsapp/webhook/receive/", async (GoogleMessage message,MessageProcessor messageProcessor) =>
-// {
-//     messageProcessor.Receive(ChatType.WhatsApp,message);
-// });
-
-
-
+app.UseGoogleClient();
+app.UseWhatsAppClient();
 
 app.UseHttpsRedirection();
 

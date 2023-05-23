@@ -15,7 +15,7 @@ public static class Configuration
     public static IServiceCollection ConfigureWhatsAppClient(this IServiceCollection services)
     {
         services.AddTransient<WhatsAppClient>()
-            .AddTransient<IChatClient, WhatsAppClient>(s => s.GetService<WhatsAppClient>());
+            .AddTransient<IChatClient, WhatsAppClient>(s => s.GetService<WhatsAppClient>()!);
         
         // set callback with httpclient
         // PATCH /v1/settings/application
@@ -36,10 +36,10 @@ public static class Configuration
     }
     public static WebApplication UseWhatsAppClient(this WebApplication app)
     {
-        var clientProvider =  app.Services.GetService<ChatClientProvider>();
+        var clientProvider =  app.Services.GetService<ChatClientProvider>()!;
         clientProvider.Add(ChatType.WhatsApp,typeof(WhatsAppClient));
-        app.MapPost("/google/webhook/receive/",
-            async (WhatsAppMessage message, MessageProcessor messageProcessor) =>
+        app.MapPost("/whatsapp/webhook/receive/",
+            (WhatsAppMessage message, MessageProcessor messageProcessor) =>
             {
                 messageProcessor.Receive(ChatType.WhatsApp, message);
             });
